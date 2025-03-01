@@ -88,52 +88,7 @@ function App() {
         </div>
       </header>
 
-      {/* Premium Features Section */}
-      <section className="py-24 bg-gradient-to-b from-white to-sky-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold mb-6">The Premium Freelance Solution for Businesses</h2>
-            <p className="text-xl text-gray-600">Everything you need to seamlessly integrate top talent into your team</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: <Users className="w-8 h-8 text-sky-500" />,
-                title: "Dedicated Hiring Experts",
-                description: "Count on an account manager to find you the right talent and see to your project's every need."
-              },
-              {
-                icon: <Shield className="w-8 h-8 text-green-500" />,
-                title: "Satisfaction Guarantee",
-                description: "Order confidently, with guaranteed refunds for less-than-satisfactory deliveries."
-              },
-              {
-                icon: <Tool className="w-8 h-8 text-purple-500" />,
-                title: "Advanced Management Tools",
-                description: "Seamlessly integrate freelancers into your team and projects."
-              },
-              {
-                icon: <CreditCard className="w-8 h-8 text-blue-500" />,
-                title: "Flexible Payment Models",
-                description: "Pay per project or opt for hourly rates to facilitate longer-term collaboration."
-              }
-            ].map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
-              >
-                <div className="bg-gray-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Categories */}
+      {/* Featured Categories - Moved up */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
@@ -249,6 +204,51 @@ function App() {
                   {service.label}
                 </p>
               </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Premium Features Section - Moved to bottom */}
+      <section className="py-24 bg-gradient-to-b from-white to-sky-50">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl font-bold mb-6">The Premium Freelance Solution for Businesses</h2>
+            <p className="text-xl text-gray-600">Everything you need to seamlessly integrate top talent into your team</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <Users className="w-8 h-8 text-sky-500" />,
+                title: "Dedicated Hiring Experts",
+                description: "Count on an account manager to find you the right talent and see to your project's every need."
+              },
+              {
+                icon: <Shield className="w-8 h-8 text-green-500" />,
+                title: "Satisfaction Guarantee",
+                description: "Order confidently, with guaranteed refunds for less-than-satisfactory deliveries."
+              },
+              {
+                icon: <Tool className="w-8 h-8 text-purple-500" />,
+                title: "Advanced Management Tools",
+                description: "Seamlessly integrate freelancers into your team and projects."
+              },
+              {
+                icon: <CreditCard className="w-8 h-8 text-blue-500" />,
+                title: "Flexible Payment Models",
+                description: "Pay per project or opt for hourly rates to facilitate longer-term collaboration."
+              }
+            ].map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              >
+                <div className="bg-gray-50 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
             ))}
           </div>
         </div>
