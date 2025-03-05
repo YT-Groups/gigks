@@ -38,10 +38,10 @@ function App() {
             </div>
             
             <button 
-              className="md:hidden p-2 rounded-md text-gray-600 hover:text-sky-600"
+              className="md:hidden p-2 rounded-md text-blue-600 hover:text-blue-800"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileMenuOpen ? <X size={30} /> : <Menu size={24} />}
             </button>
 
             <div className="hidden md:flex items-center space-x-6">
@@ -128,7 +128,8 @@ function HomePage({ onFindWorkClick, onBrowseFreelancersClick }) {
   return (
     <>
       {/* Hero Section */}
-      <header className="relative overflow-hidden bg-gradient-to-b from-sky-50 to-white">
+      <header className="relative overflow-hidden bg-gradient-to-b from-sky-50 to-white flex items-center justify-center text-center">
+
         <div className="absolute inset-0 hero-pattern"></div>
         <div className="container relative mx-auto px-4 sm:px-6 py-20 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
