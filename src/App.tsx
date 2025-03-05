@@ -134,10 +134,11 @@ function HomePage({ onFindWorkClick, onBrowseFreelancersClick }) {
         <div className="container relative mx-auto px-4 sm:px-6 py-20 md:py-32">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
-              <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold">
+
                 Find <span className="gradient-text">amazing talent</span> for your next project
               </h1>
-              <p className="text-xl text-gray-600">Connect with top freelancers and bring your ideas to life</p>
+              <p className="text-base sm:text-lg text-gray-600">Connect with top freelancers and bring your ideas to life</p>
               <div className="relative">
                 <input
                   type="text"
@@ -306,7 +307,7 @@ function HomePage({ onFindWorkClick, onBrowseFreelancersClick }) {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl font-bold mb-6">The Premium Freelance Solution for Businesses</h2>
-            <p className="text-xl text-gray-600">Everything you need to seamlessly integrate top talent into your team</p>
+            <p className="text-base sm:text-lg text-gray-600">Everything you need to seamlessly integrate top talent into your team</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
@@ -594,7 +595,8 @@ function FreelancerFeed() {
               <option>Writing</option>
               <option>Marketing</option>
             </select>
-            <button className="bg-sky-500 text-white px-6 py-2 rounded-lg hover:bg-sky-600">
+            <button className="bg-sky-500 text-white px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base rounded-lg hover:bg-sky-600
+">
               Search
             </button>
           </div>
