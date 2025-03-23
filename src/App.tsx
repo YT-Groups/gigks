@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Globe, Menu, X, Sparkles, Zap, Star, TrendingUp, Shield, Clock, PenTool as Tool, CreditCard, Users, Briefcase, Award, Heart, Rss } from 'lucide-react';
+import { Search, Globe, Menu, X, Sparkles, Zap, Star, TrendingUp, Shield, Clock, PenTool as Tool, CreditCard, Users, Briefcase, Award, Heart, Rss, Settings, User, Edit, Lock, Bell, HelpCircle, LogOut } from 'lucide-react';
+
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +16,12 @@ function App() {
         return <SignIn />;
       case 'signup':
         return <SignUp />;
+      case 'settings':
+        return <SettingsPage />;
+      case 'profile':
+        return <ProfilePage />;
+      case 'manage-profile':
+        return <ManageProfilePage />;
       default:
         return <HomePage 
           onFindWorkClick={() => setCurrentPage('jobs')}
@@ -73,6 +80,12 @@ function App() {
               >
                 Join Now
               </button>
+              <button 
+                className="text-gray-600 hover:text-sky-600 transition-all hover:scale-105"
+                onClick={() => setCurrentPage('settings')}
+              >
+                <Settings size={24} />
+              </button>
             </div>
           </div>
 
@@ -114,6 +127,15 @@ function App() {
               >
                 Join Now
               </button>
+              <button 
+                className="text-gray-600 hover:text-sky-600 transition-colors py-2"
+                onClick={() => {
+                  setCurrentPage('settings');
+                  setMobileMenuOpen(false);
+                }}
+              >
+                Settings
+              </button>
             </div>
           </div>
         </div>
@@ -123,6 +145,192 @@ function App() {
     </div>
   );
 }
+
+
+
+// Add the new components for Settings, Profile, and Manage Profile
+function SettingsPage() {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl font-bold mb-8">Settings</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <User className="text-sky-500" size={24} />
+              <h2 className="text-xl font-bold">Profile</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Manage your profile information and visibility.</p>
+            <button 
+              className="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
+              onClick={() => setCurrentPage('profile')}
+            >
+              View Profile
+            </button>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <Edit className="text-purple-500" size={24} />
+              <h2 className="text-xl font-bold">Manage Profile</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Edit your profile details and preferences.</p>
+            <button 
+              className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors"
+              onClick={() => setCurrentPage('manage-profile')}
+            >
+              Manage Profile
+            </button>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <Lock className="text-red-500" size={24} />
+              <h2 className="text-xl font-bold">Security</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Update your password and security settings.</p>
+            <button 
+              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
+              onClick={() => setCurrentPage('security')}
+            >
+              Security Settings
+            </button>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <Bell className="text-yellow-500" size={24} />
+              <h2 className="text-xl font-bold">Notifications</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Manage your notification preferences.</p>
+            <button 
+              className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors"
+              onClick={() => setCurrentPage('notifications')}
+            >
+              Notification Settings
+            </button>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <HelpCircle className="text-green-500" size={24} />
+              <h2 className="text-xl font-bold">Help & Support</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Get help and support for your account.</p>
+            <button 
+              className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+              onClick={() => setCurrentPage('help')}
+            >
+              Help & Support
+            </button>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center space-x-4 mb-4">
+              <LogOut className="text-gray-500" size={24} />
+              <h2 className="text-xl font-bold">Logout</h2>
+            </div>
+            <p className="text-gray-600 mb-4">Logout from your account.</p>
+            <button 
+              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+              onClick={() => setCurrentPage('logout')}
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ProfilePage() {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl font-bold mb-8">Profile</h1>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="flex items-center space-x-6 mb-6">
+            <img 
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300" 
+              alt="Profile" 
+              className="w-24 h-24 rounded-full object-cover"
+            />
+            <div>
+              <h2 className="text-2xl font-bold">John Doe</h2>
+              <p className="text-gray-600">Full Stack Developer</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-xl font-bold mb-4">About Me</h3>
+              <p className="text-gray-600">I am a passionate Full Stack Developer with over 5 years of experience in building web applications. I specialize in React, Node.js, and MongoDB.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-4">Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                {['React', 'Node.js', 'MongoDB', 'TypeScript', 'Express', 'GraphQL'].map((skill, index) => (
+                  <span key={index} className="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-sm">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ManageProfilePage() {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4 sm:px-6">
+        <h1 className="text-3xl font-bold mb-8">Manage Profile</h1>
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <form className="space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" 
+                placeholder="John Doe"
+              />
+            </div>
+            <div>
+              <label htmlFor="bio" className="block text-sm font-medium text-gray-700">Bio</label>
+              <textarea 
+                id="bio" 
+                name="bio" 
+                rows={4}
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" 
+                placeholder="Tell us about yourself..."
+              />
+            </div>
+            <div>
+              <label htmlFor="skills" className="block text-sm font-medium text-gray-700">Skills</label>
+              <input 
+                type="text" 
+                id="skills" 
+                name="skills" 
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" 
+                placeholder="React, Node.js, MongoDB"
+              />
+            </div>
+            <div>
+              <button 
+                type="submit" 
+                className="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
+              >
+                Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 
 function HomePage({ onFindWorkClick, onBrowseFreelancersClick }) {
   return (
